@@ -1,0 +1,22 @@
+SAVEFIG	= ../savefig.py
+SOURCES = $(wildcard *.py)
+IMAGES = $(subst .py,.png, $(SOURCES))
+IMAGES_LARGE = $(subst .py,-large.png, $(SOURCES))
+
+
+.PHONY: all clean distclean
+
+all: $(IMAGES)
+
+%.png: %.py
+	@echo "  - $@"
+	@$(SAVEFIG) $< $@
+
+clean:
+	@-rm -f $(IMAGES) $(IMAGES_LARGE)
+
+distclean: clean
+	@-rm -f `find . -name "*~"`
+
+
+
