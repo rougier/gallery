@@ -9,7 +9,7 @@ RST2HTML_OPTIONS = --strip-comments             \
 	               --stylesheet=$(STYLESHEET)   \
                    --link-stylesheet
 
-SUBDIRS = spine style image grid one-line showcase
+SUBDIRS = spine style simple image grid one-line showcase
 
 all: index.html
 
