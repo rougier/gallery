@@ -11,7 +11,7 @@ RST2HTML_OPTIONS = --strip-comments             \
 
 SUBDIRS = spine style image grid one-line showcase
 
-all: gallery.html
+all: index.html
 
 %.rst: $(SUBDIRS)
 	@./make-figures.py
@@ -31,6 +31,3 @@ distclean: clean
 	@-rm -f `find . -name "*~"`
 
 .PHONY: all clean distclean $(SUBDIRS)
-
-
-
