@@ -17,3 +17,6 @@ If you want to contribute:
 
 * Try to make your example beautiful, especially for the showcase ones
 
+
+Repository: https://github.com/rougier/gallery
+Gallery: http://www.loria.fr/~rougier/coding/gallery/
