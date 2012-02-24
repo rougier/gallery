@@ -9,7 +9,7 @@ RST2HTML_OPTIONS = --strip-comments             \
 	               --stylesheet=$(STYLESHEET)   \
                    --link-stylesheet
 
-SUBDIRS = spine style simple image grid one-line showcase
+SUBDIRS = spine style simple image grid one-line showcase voronoi
 
 all: index.html
 
@@ -29,5 +29,6 @@ clean:
 
 distclean: clean
 	@-rm -f `find . -name "*~"`
+	@-rm -f `find . -name "*.pyc"`
 
 .PHONY: all clean distclean $(SUBDIRS)

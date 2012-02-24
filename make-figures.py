@@ -14,7 +14,8 @@ figure_rst = """
 
 """
 
-directories = 'spine', 'style', 'simple', 'image', 'grid', 'one-line', 'showcase'
+directories = ['simple', 'spine', 'style', 'image',
+               'one-line', 'grid', 'voronoi', 'showcase']
 for d in directories:
     print "Making all in", d
     for f in glob.glob(d+"/*.py"):

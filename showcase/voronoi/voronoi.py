@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -----------------------------------------------------------------------------
 # Voronoi diagram from a list of points
-# Copyright (C) 2011  Nicolas P. Rougier
+# Copyright (C) 2012  Nicolas P. Rougier
 #
 # Distributed under the terms of the BSD License.
 # -----------------------------------------------------------------------------
@@ -10,10 +10,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 def circumcircle(P1,P2,P3):
-    ''' 
+    """ 
+    This compute the center and radius of the (unique) circle that passes
+    through points P1, P2 & P3.
+
     Adapted from:
     http://local.wasp.uwa.edu.au/~pbourke/geometry/circlefrom3/Circle.cpp
-    '''
+    """
     delta_a = P2 - P1
     delta_b = P3 - P2
     epsilon = 0.000000001
@@ -32,6 +35,13 @@ def circumcircle(P1,P2,P3):
     return center_x, center_y, radius
 
 def voronoi(X,Y):
+    """
+    This compute the Voronoi diagram of points X,Y
+
+    Return the Voronoi cells (as a list of points), Delaunay triangles (as a
+    list of indices in X and Y) & Delaunay circles as list of (x,y,radius).
+    """
+
     P = np.zeros((X.size,2))
     P[:,0] = X
     P[:,1] = Y
@@ -58,39 +68,4 @@ def voronoi(X,Y):
         cell = xy[I].tolist()
         cell.append(cell[0])
         cells[i] = cell
-    return cells
-
-    # X,Y = C[:,0], C[:,1]
-    # segments = []
-    # for i in range(n):
-    #     for j in range(3):
-    #         k = D.neighbors[i][j]
-    #         if k != -1:
-    #             segments.append( [(X[i],Y[i]), (X[k],Y[k])] )
-    # return segments, cells
-
-
-if __name__ == '__main__':
-    import matplotlib.path as mpath
-
-    X,Y = np.meshgrid(np.linspace(-0.1,1.1,25), np.linspace(-0.1,1.1,25))
-    X = X.ravel() + np.random.uniform(-0.025,0.025,X.size)
-    Y = Y.ravel() + np.random.uniform(-0.025,0.025,Y.size)
-    cells = voronoi(X,Y)
-
-    fig = plt.figure(figsize=(8,6))
-    axes = plt.subplot(111, aspect=1)
-    # plt.scatter(X, Y, s=3, color='w', zorder=1)
-    for cell in cells:
-        codes = [matplotlib.path.Path.MOVETO] \
-              + [matplotlib.path.Path.LINETO] * (len(cell)-2) \
-              + [matplotlib.path.Path.CLOSEPOLY]
-        path = matplotlib.path.Path(cell,codes)
-        color = np.random.uniform(.4,.9,3)
-        patch = matplotlib.patches.PathPatch(
-            path, facecolor=color, edgecolor='w', zorder=-1)
-        axes.add_patch(patch)
-
-    plt.axis([0,1,0,1])
-    plt.xticks([]), plt.yticks([])
-    plt.show()
+    return cells, D.triangles, C
