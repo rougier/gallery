@@ -16,7 +16,7 @@ X = np.linspace(0,+2*np.pi,256)
 Y = np.sin(X*X)*np.exp(-X/3)
 
 # Actual plotting
-fig = plt.figure(figsize=(10,6), dpi=72, facecolor="white")
+fig = plt.figure(figsize=(8,6), dpi=72, facecolor="white")
 axes = plt.subplot(111)
 axes.plot(X,Y, color = 'blue', linewidth=2.0, linestyle="-")
 
