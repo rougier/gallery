@@ -78,7 +78,7 @@ if __name__ == '__main__':
     Y = Y.ravel() + np.random.uniform(-0.025,0.025,Y.size)
     cells = voronoi(X,Y)
 
-    fig = plt.figure(figsize=(10,10))
+    fig = plt.figure(figsize=(6,6))
     axes = plt.subplot(111)
     # plt.scatter(X, Y, s=3, color='w', zorder=1)
     for cell in cells:
