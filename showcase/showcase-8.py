@@ -78,8 +78,8 @@ if __name__ == '__main__':
     Y = Y.ravel() + np.random.uniform(-0.025,0.025,Y.size)
     cells = voronoi(X,Y)
 
-    fig = plt.figure(figsize=(6,6))
-    axes = plt.subplot(111)
+    fig = plt.figure(figsize=(8,6))
+    axes = plt.subplot(111, aspect=1)
     # plt.scatter(X, Y, s=3, color='w', zorder=1)
     for cell in cells:
         codes = [matplotlib.path.Path.MOVETO] \
