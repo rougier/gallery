@@ -1,3 +1,5 @@
+.. role:: custom
+
 Matplotlib gallery
 ==================
 
@@ -22,7 +24,6 @@ https://github.com/rougier/gallery and submit a pull request for a new example:
 * Try to make your example beautiful, especially for the showcase ones
 
 
-Repository: https://github.com/rougier/gallery
-
-Gallery: http://www.loria.fr/~rougier/coding/gallery/
+| Repository: https://github.com/rougier/gallery
+| Gallery: http://www.loria.fr/~rougier/coding/gallery/
 

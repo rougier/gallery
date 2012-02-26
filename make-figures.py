@@ -14,10 +14,15 @@ figure_rst = """
 
 """
 
-directories = ['simple', 'spine', 'style', 'image',
-               'one-line', 'grid', 'voronoi', 'showcase']
+directories = [ 'spine', 'style', 'image',  'one-line',
+                'grid', 'voronoi', 'simple', 'showcase']
 for d in directories:
     print "Making all in", d
+    title = ":custom:`%s`" % d
+    gallery += title + '\n'
+    gallery += '-'*len(title)
+    gallery += '\n\n'
+    
     for f in glob.glob(d+"/*.py"):
         name = os.path.basename(f)
         name = name.split('.')[0]
