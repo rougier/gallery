@@ -26,6 +26,7 @@ for d in directories:
     for f in glob.glob(d+"/*.py"):
         name = os.path.basename(f)
         name = name.split('.')[0]
+        print name
         gallery +=  figure_rst % (d,name,d,name,name,d,name)
     print
 f = open('index.rst','w')
