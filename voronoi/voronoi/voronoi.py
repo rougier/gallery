@@ -24,8 +24,13 @@ def circumcircle(P1,P2,P3):
         center_x = 0.5*(P2[0] + P3[0])
         center_y = 0.5*(P1[1] + P2[1])
     else:
-        aSlope = delta_a[1]/delta_a[0]
-        bSlope = delta_b[1]/delta_b[0]
+        if delta_a[0] == 0: aSlope = delta_a[1]/epsilon
+        elif delta_a[1] == 0: aSlope = epsilon
+        else: aSlope = delta_a[1]/delta_a[0]
+        
+        if delta_b[0] == 0: bSlope = delta_b[1]/epsilon
+        else: bSlope = delta_b[1]/delta_b[0]
+        
         if np.abs(aSlope-bSlope) <= epsilon:
             return None
         center_x= (aSlope*bSlope*(P1[1] - P3[1]) + bSlope*(P1[0] + P2 [0]) \
