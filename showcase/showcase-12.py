@@ -6,7 +6,6 @@
 import random
 import matplotlib.pyplot as plt
 import matplotlib.patches as mps
-from tqdm import tqdm
 
 
 class Aztec_Diamond:
@@ -134,9 +133,9 @@ ax.axis([-N-1, N+1, -N-1, N+1])
 
 
 az = Aztec_Diamond(0)
-for i in tqdm(range(N)):
+for i in range(N):
     az = az.delete().slide().create()
 print('saving image with matplotlib...')
 az.draw()
-fig.savefig('random_tiling.png', backgroud_color='#DDDDDD')
+fig.savefig('random_tiling.png')
 print('done!')
